@@ -1,0 +1,1 @@
+The Order Processing System is a web-based application that efficiently manages customer orders, inventory, and order status. It supports concurrent order processing, inventory locking, automatic retries, and a Dead-Letter Queue for failed orders. A real-time dashboard provides clear visibility into orders, inventory, and processing activities.
