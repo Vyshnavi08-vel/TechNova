@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: order-processing-system
+
+  datasource:
+    # For local PostgreSQL. Swap host/port/credentials for AWS RDS in prod
+    # (e.g. via environment variables SPRING_DATASOURCE_URL / USERNAME / PASSWORD).
+    url: jdbc:postgresql://localhost:5432/orderdb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 5
+      connection-timeout: 5000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    # Ensures Hibernate creates the schema BEFORE data.sql tries to insert into it.
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: always
+
+logging:
+  level:
+    com.example.orders: INFO
